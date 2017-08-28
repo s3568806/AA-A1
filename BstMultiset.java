@@ -50,6 +50,17 @@ public class BstMultiset<T> extends Multiset<T>
 			return 0;
 		}
 	} // end of add()
+
+	public void removeOne(T item) {
+		// Implement me!
+		Node found == null;
+		if(root != null){
+			found = traverseTree(root, item);
+			if(found.instance > 0){
+				found.instance --;
+			}
+		}
+	} // end of removeOne()
 	
 	//function to traverse BST
 	private Node traveseTree(Node root, T item){
@@ -64,13 +75,6 @@ public class BstMultiset<T> extends Multiset<T>
 			traverseTree(root.rightChild, item);
 		}
 	}
-
-	public void removeOne(T item) {
-		// Implement me!
-		if(root != null){
-			
-		}
-	} // end of removeOne()
 	
 	public void removeAll(T item) {
 		// Implement me!
