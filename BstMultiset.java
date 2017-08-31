@@ -14,7 +14,7 @@ public class BstMultiset<T> extends Multiset<T>
 
 	public void add(T item) {
 		if(root == null){
-			root new Node(item);
+			root = new Node(item);
 		}
 		else{
 			insert(root, item);
