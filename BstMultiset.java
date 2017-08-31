@@ -41,7 +41,6 @@ public class BstMultiset<T> extends Multiset<T>
 	}
 	
 	public int search(T item) {
-		// Implement me!
 		Node found = null;
 		if(root != null){
 			found = traverseTree(root, item);
@@ -53,7 +52,6 @@ public class BstMultiset<T> extends Multiset<T>
 	} // end of add()
 
 	public void removeOne(T item) {
-		// Implement me!
 		Node found == null;
 		if(root != null){
 			found = traverseTree(root, item);
