@@ -27,13 +27,13 @@ public class BstMultiset<T> extends Multiset<T>
 		if (root == null) {
 			root = new Node(item);
 		}
-		else if (item < root.value) {
+		else if (itemVal.compareTo(nodeVal) < 0) {
 			root.leftChild = insert(root.leftChild, item);
 		}
-		else if (item > root.value) {
+		else if (itemVal.compareTo(nodeVal) > 0) {
 			root.rightChild = insert(root.rightChild, item);
 		}
-		else if (item == root.value){
+		else if (nodeVal.compareTo(itemVal) == 0){
 			root.instance ++;
 		}
 		return root;
@@ -64,11 +64,13 @@ public class BstMultiset<T> extends Multiset<T>
 	
 	//function to traverse BST
 	private Node traveseTree(Node root, T item){
-		if(root.value == item || root == null){
+		nodeVal = root.value.toString();
+		itemVal = item.toString();
+		if(itemVal.compareTo(nodeVal) == 0 || root == null){
 			return root;
 		}
 		
-		if(root.value < item){
+		if(itemVal.compareTo(NodeVal) < 0){
 			traverseTree(root.leftChild, item);
 		}
 		else{
@@ -77,14 +79,33 @@ public class BstMultiset<T> extends Multiset<T>
 	}
 	
 	public void removeAll(T item) {
-		// Implement me!
+		Node found = null;
 		if(root != null){
-			
+			found = traverseTree(root, item);
+			//Case 1: the deleted node has no children
+			if(found.leftChild == null && found.rightChild == null){
+				found == null;
+			}
+			//Case 2: the deleted node has one child
+			else if(found.leftChild == null && found.rightChild != null){
+				if(found == root){
+					root = null;
+					root = found.rightChild;
+				}
+				
+			}
+			else if(found.leftChild != null && found.rightChild == null){
+				if(found == root){
+					root = null;
+					root = found.leftChild;
+				}
+				
+			}
+			//Case 3: the deleted node has two children
 		}
 	} // end of removeAll()
 
 	public void print(PrintStream out) {
-		// Implement me!
 		if(root != null){
 			print(root);
 		}
