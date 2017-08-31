@@ -63,18 +63,19 @@ public class BstMultiset<T> extends Multiset<T>
 	} // end of removeOne()
 	
 	//function to traverse BST
-	private Node traveseTree(Node root, T item){
+	private Node traverseTree(Node root, T item){
 		nodeVal = root.value.toString();
 		itemVal = item.toString();
 		if(itemVal.compareTo(nodeVal) == 0 || root == null){
 			return root;
 		}
-		
-		if(itemVal.compareTo(NodeVal) < 0){
-			traverseTree(root.leftChild, item);
+		else if(itemVal.compareTo(nodeVal) < 0){
+			root = traverseTree(root.leftChild, item);
+			return root;
 		}
 		else{
-			traverseTree(root.rightChild, item);
+			root = traverseTree(root.rightChild, item);
+			return root;
 		}
 	}
 	
