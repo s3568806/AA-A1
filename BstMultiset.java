@@ -22,20 +22,21 @@ public class BstMultiset<T> extends Multiset<T>
 	} // end of add()
 	
 	private Node insert (Node root, T item){
-		nodeVal = root.value.toString();
-		itemVal = item.toString();
 		if (root == null) {
 			root = new Node(item);
+			return root;
 		}
-		else if (itemVal.compareTo(nodeVal) < 0) {
+		
+		nodeVal = root.value.toString();
+		itemVal = item.toString();
+		
+		if (itemVal.compareTo(nodeVal) < 0)
 			root.leftChild = insert(root.leftChild, item);
-		}
-		else if (itemVal.compareTo(nodeVal) > 0) {
+		else if (itemVal.compareTo(nodeVal) > 0)
 			root.rightChild = insert(root.rightChild, item);
-		}
-		else if (nodeVal.compareTo(itemVal) == 0){
+		else
 			root.instance ++;
-		}
+			
 		return root;
 	}
 	
