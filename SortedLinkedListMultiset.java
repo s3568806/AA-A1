@@ -38,7 +38,26 @@ public class SortedLinkedListMultiset<T> extends Multiset<T>
 	
 	
 	public void print(PrintStream out) {
-		// Implement me!
+		if(listHead != null){
+			Node currNode = listHead;
+			while(currNode != null){
+				System.out.println(currNode.value + " | " + currNode.instance);
+				currNode = currNode.nNext;
+			}
+		}
 	} // end of print()
 	
+	private class Node{
+		private T value;
+		private int instance;
+		private Node nNext;
+		private Node nPrev;
+		
+		public Node(T item){
+			value = item;
+			nNext = null;
+			nPrev = null;
+			instance = 1;
+		}
+	}
 } // end of class SortedLinkedListMultiset
